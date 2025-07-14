@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema Web para la Gestión Integrada de Huertos y Avícolas Domésticas</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f7fafc;
+    }
+    .hidden-section { display: none; }
+    .active-section { display: block; }
+    .agriculture-bg {
+      background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://humanidades.com/wp-content/uploads/2018/09/pradera-3-e1578854186502.jpg') no-repeat center center;
+      background-size: cover;
+      min-height: 200px;
+    }
+    .profile-card {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    }
+    .badge-agriculture {
+      background-color: #48bb78;
+    }
+    .badge-poultry {
+      background-color: #f6ad55;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navegación -->
+  <nav class="bg-green-600 text-white px-6 py-4">
+    <div class="container mx-auto flex justify-between items-center">
+      <h1 class="text-xl font-bold">Gestión Huertos y Avícolas</h1>
+      <div class="space-x-4">
+        <button onclick="mostrarSeccion('inicio')" class="hover:underline">Inicio</button>
+        <button onclick="mostrarSeccion('productores')" class="hover:underline">Provedores</button>
+        <button onclick="mostrarSeccion('registro')" class="hover:underline">Registro</button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- SECCIÓN INICIO -->
+  <section id="inicio" class="active-section p-8">
+    <header class="agriculture-bg text-white">
+      <div class="container mx-auto px-4 py-20 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold mb-4">Sistema Web para la Gestión Integrada</h1>
+        <h2 class="text-2xl md:text-3xl font-semibold">Huertos y Avícolas Domésticas</h2>
+      </div>
+    </header>
+    <section id="inicio" class="bg-green-50 py-12 px-6">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-green-800 mb-4">¡Bienvenido!</h2>
+    <p class="text-gray-700 leading-relaxed text-lg">
+        Este sitio web tiene como objetivo facilitar la conexión entre productores locales de hortalizas y cria de pollos con consumidores de la región. Aquí podrás conocer los diferentes productores, los productos que ofrecen, los precios que ofrecen, sus ubicaciones y formas de contacto. Además, puedes registrarte a nuestro sitio web. Nuestro compromiso es fomentar la economía local, garantizar productos frescos y apoyar la sostenibilidad rural.
+      </p>
+      <p class="mt-4 text-gray-600">Creadores: Yanelis Martínez, Shelby Reyes, Boris Bernal, Fernando Rodríguez</p>
+    </div>
+  </section>
+
+    <!-- Carrusel -->
+    <div class="relative mt-10 w-full max-w-5xl mx-auto">
+      <div class="overflow-hidden rounded-lg shadow-lg">
+        <img id="carouselImage"
+             src="https://tugallinaonline.es/planeta-avicola/wp-content/uploads/2021/01/cria-natural-de-pollitos-1536x1021.jpg"
+             alt="Carrusel"
+             class="w-full h-[500px] object-cover object-center transition duration-700">
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  const images = [
+   "https://molinoschampion.com/wp-content/uploads/2019/12/Recomendaciones-b%C3%A1sicas-cr%C3%ADa-de-pollitos-blog.jpg",       // Pollos
+    "https://media.istockphoto.com/id/1346744481/es/foto/chef-an%C3%B3nimo-cosechando-verduras-frescas-en-una-granja.jpg?s=1024x1024&w=is&k=20&c=-CpRu1OkmRrRHD0t_kPi2QlOdJcLJd9CWBaKDzYS_-c=", // Hortalizas
+    "https://www.suenaacampo.com/prueba1/wp-content/uploads/2021/05/huevos-2-580x375.jpg" // Huevos
+  ];
+
+  let current = 0;
+  const imageElement = document.getElementById("carouselImage");
+
+  function showNextImage() {
+    current = (current + 1) % images.length;
+    imageElement.src = images[current];
+  }
+
+  setInterval(showNextImage, 4000);
+</script>
+
+
+  <!-- SECCIÓN PRODUCTORES -->
+  <section id="productores" class="hidden-section container mx-auto px-4 py-10">
+    <h2 class="text-2xl md:text-3xl font-bold text-center mb-2 text-gray-800">Nuestros Proveedores</h2>
+    <p class="text-center text-gray-600 mb-10">Conozca a nuestros Proveedores especializados en producción agrícola y avícola</p>
+
+   <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <!-- Provider 1 -->
+                <div class="profile-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/41f0f660-faa6-4a9f-8b3f-e1879485dbaf.png" alt="Juan Pérez, agricultor orgánico de mediana edad sonriendo en su huerto familiar con diversas verduras de fondo" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">Juan Pérez</h3>
+
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class="ml-2 text-gray-600">+507 6445-6218</span>
+                        </div>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="ml-2 text-gray-600">Altos de la Estancia, via hacia el Valle de Anton</span>
+                            <div class="map-container bg-gray-200">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d201.93907516793618!2d-80.18122270707015!3d8.592581246552301!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8fac5941e2c0ba27%3A0xac82d06ffdd488a!2sAlto%20de%20La%20Estancia!3m2!1d8.597431199999999!2d-80.1791368!4m5!1s0x8fac498beda9b6c5%3A0x41137a2cf5404a46!2sCocl%C3%A9%20Provincia%20de%20Cocl%C3%A9!3m2!1d8.400144899999999!2d-80.4215246!5e1!3m2!1ses!2spa!4v1751774314833!5m2!1ses!2spa" width="100" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+                        </div>
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700">Productos que ofrece:</h4>
+                            <ul class="mt-2 space-y-1">
+                                <li class="flex items-center">
+                                    <span class="badge-agriculture text-white text-xs px-2 py-1 rounded-full mr-2">H</span>
+                                    <span>Hortalizas 1.00 lb</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="badge-agriculture text-white text-xs px-2 py-1 rounded-full mr-2">H</span>
+                                    <span>Otoe,Maiz,cebolla 0.60 lb</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="badge-poultry text-white text-xs px-2 py-1 rounded-full mr-2">A</span>
+                                    <span>Huevos de gallina criolla 0.15 C/U </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provider 2 -->
+                <div class="profile-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/f963dc8d-7d24-4b0d-baf7-cb93f54c8423.png" alt="María Gómez, mujer indígena con sombrero tradicional mostrando pollos de traspatio en su granja familiar" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">María Gómez</h3>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class="ml-2 text-gray-600">+507 6970-4761</span>
+                        </div>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="ml-2 text-gray-600">San Juan de Dios, Antón </span>
+                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d201.9596151767114!2d-80.22840892498722!3d8.553926799360136!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e0!4m5!1s0x8fac529a51b7c96b%3A0x30686bc3be6f503!2sEscuela%20Secundaria%20Salom%C3%B3n%20Ponce%20Aguilera%2C%20Ave.%207a%2C%20Ant%C3%B3n!3m2!1d8.393259!2d-80.266983!4m5!1s0x8fac498beda9b6c5%3A0x41137a2cf5404a46!2sCocl%C3%A9%20Provincia%20de%20Cocl%C3%A9!3m2!1d8.400144899999999!2d-80.4215246!5e1!3m2!1ses!2spa!4v1751774080980!5m2!1ses!2spa" width="100" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700">Productos que ofrece:</h4>
+                            <ul class="mt-2 space-y-1">
+                                <li class="flex items-center">
+                                    <span class="badge-poultry text-white text-xs px-2 py-1 rounded-full mr-2">A</span>
+                                    <span>Pollo criollo 1.50 lb</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="badge-poultry text-white text-xs px-2 py-1 rounded-full mr-2">A</span>
+                                    <span>Verduras 1.00 lb</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="badge-agriculture text-white text-xs px-2 py-1 rounded-full mr-2">H</span>
+                                    <span>Zapallo y Ñame 0.50 lb</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provider 3 -->
+                <div class="profile-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/0c512a02-f13e-4d68-b60d-cacb83519ebc.png" alt="Carlos Rojas, joven agricultor mostrando sus cultivos hidropónicos en un invernadero" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">Carlos Martinez</h3>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class="ml-2 text-gray-600">+507 6623-6479</span>
+                        </div>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="ml-2 text-gray-600">La Montañita, Altos de la Estancia</span>
+                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d403.871417882009!2d-80.17724323890305!3d8.598899734273436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x8fac596f5c9840c9%3A0x39a7ece5e3fc980!2sLa%20Montanita!3m2!1d8.593575999999999!2d-80.175743!4m5!1s0x8fac498beda9b6c5%3A0x41137a2cf5404a46!2sCocl%C3%A9%20Provincia%20de%20Cocl%C3%A9!3m2!1d8.400144899999999!2d-80.4215246!5e1!3m2!1ses!2spa!4v1751772565247!5m2!1ses!2spa" width="100" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700">Productos que ofrece:</h4>
+                            <ul class="mt-2 space-y-1">
+                                <li class="flex items-center">
+                                    <span class="badge-agriculture text-white text-xs px-2 py-1 rounded-full mr-2">H</span>
+                                    <span>Cebollina,Apio,Frijol 0.80 lb</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="badge-agriculture text-white text-xs px-2 py-1 rounded-full mr-2">H</span>
+                                    <span>Tomate y Pepinos 0.60 lb</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="badge-poultry text-white text-xs px-2 py-1 rounded-full mr-2">A</span>
+                                    <span>Gallinas ponedoras 1.50 lb</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Provider 4 -->
+                <div class="profile-card bg-white rounded-lg overflow-hidden shadow-lg">
+                    <div class="h-48 overflow-hidden">
+                        <img src="https://storage.googleapis.com/workspace-0f70711f-8b4e-4d94-86f1-2a93ccde5887/image/12522e35-bcef-4d52-b922-54054ed749c4.png" alt="Luisa Torres, mujer madura en su granja sostenible con diversidad de animales y cultivos" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-800">Angelica Perez</h3>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
+                            </svg>
+                            <span class="ml-2 text-gray-600">+507 6358-6674</span>
+                        </div>
+                        <div class="flex items-center mt-2">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+                            </svg>
+                            <span class="ml-2 text-gray-600">Santa Rita, Antón</span>
+                        </div>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m28!1m12!1m3!1d403.871417882009!2d-80.17724323890305!3d8.598899734273436!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m13!3e6!4m5!1s0x8fac596f5c9840c9%3A0x39a7ece5e3fc980!2sLa%20Montanita!3m2!1d8.593575999999999!2d-80.175743!4m5!1s0x8fac498beda9b6c5%3A0x41137a2cf5404a46!2sCocl%C3%A9%20Provincia%20de%20Cocl%C3%A9!3m2!1d8.400144899999999!2d-80.4215246!5e1!3m2!1ses!2spa!4v1751772565247!5m2!1ses!2spa" width="100" height="100" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                        <div class="mt-4">
+                            <h4 class="font-semibold text-gray-700">Productos que ofrece:</h4>
+                            <ul class="mt-2 space-y-1">
+                                <li class="flex items-center">
+                                    <span class="badge-poultry text-white text-xs px-2 py-1 rounded-full mr-2">A</span>
+                                    <span>Chayote 1.00 lb</span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="badge-agriculture text-white text-xs px-2 py-1 rounded-full mr-2">H</span>
+                                    <span>Culantro 2.00 mazo </span>
+                                </li>
+                                <li class="flex items-center">
+                                    <span class="badge-agriculture text-white text-xs px-2 py-1 rounded-full mr-2">H</span>
+                                    <span>yucas 2.30 lb</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+  <!-- SECCIÓN REGISTRO -->
+  <section id="registro" class="hidden-section max-w-xl mx-auto py-10 px-4">
+    <h2 class="text-2xl font-bold text-center text-gray-800 mb-6">Formulario de Registro</h2>
+    <form class="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Nombre Completo</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" type="text" placeholder="Tu nombre">
+      </div>
+      <div class="mb-4">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Correo Electrónico</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" type="email" placeholder="correo@example.com">
+      </div>
+      <div class="mb-6">
+        <label class="block text-gray-700 text-sm font-bold mb-2">Contraseña</label>
+        <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight" type="password" placeholder="********">
+      </div>
+      <div class="flex items-center justify-center">
+        <button class="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded" type="submit">
+          Registrarse
+        </button>
+      </div>
+    </form>
+  </section>
+<!-- SECCIÓN DE BENEFICIOS -->
+<section class="mt-20">
+  <h2 class="text-2xl md:text-3xl font-bold text-center mb-10 text-gray-800">Beneficios de nuestro sistema</h2>
+  <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+    <!-- Beneficio 1 -->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <div class="flex justify-center mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">Conexión Directa</h3>
+      <p class="text-gray-600">Conectamos productores locales con consumidores interesados en productos frescos y de calidad.</p>
+    </div>
+    <!-- Beneficio 2 -->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <div class="flex justify-center mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">Calidad Garantizada</h3>
+      <p class="text-gray-600">Todos nuestros proveedores cumplen con estándares de producción sostenible y responsable.</p>
+    </div>
+    <!-- Beneficio 3 -->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <div class="flex justify-center mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">Soporte Permanente</h3>
+      <p class="text-gray-600">Asesoramiento técnico permanente para mejorar la productividad de huertos y avicultura.</p>
+    </div>
+    <!-- Beneficio 4 -->
+    <div class="bg-white p-6 rounded-lg shadow-md text-center">
+      <div class="flex justify-center mb-4">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-12 w-12 text-green-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+        </svg>
+      </div>
+      <h3 class="text-xl font-semibold text-gray-800 mb-2">Economía Local</h3>
+      <p class="text-gray-600">Fomentamos el comercio justo y el apoyo a pequeños productores de tu región.</p>
+    </div>
+  </div>
+</section>
+  <!-- FOOTER -->
+  <footer class="bg-gray-800 text-white py-10 mt-10">
+    <div class="container mx-auto px-4 text-center">
+      <h1 class="text-xl font-bold">Gestión Integrada de Huertos y Avícolas</h1>
+      <p class="mt-2 text-gray-400">Conectando productores y consumidores desde 2024</p>
+      <p class="text-sm text-gray-500 mt-4">Provincia de Coclé, Panamá</p>
+      <p class="text-sm text-gray-500 mt-2">© Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <!-- SCRIPT PARA MOSTRAR SECCIONES -->
+  <script>
+    function mostrarSeccion(seccionId) {
+      document.getElementById('inicio').classList.add('hidden-section');
+      document.getElementById('productores').classList.add('hidden-section');
+      document.getElementById('registro').classList.add('hidden-section');
+
+      document.getElementById('inicio').classList.remove('active-section');
+      document.getElementById('productores').classList.remove('active-section');
+      document.getElementById('registro').classList.remove('active-section');
+
+      document.getElementById(seccionId).classList.remove('hidden-section');
+      document.getElementById(seccionId).classList.add('active-section');
+    }
+  </script>
+</body>
+</html>
